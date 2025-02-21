@@ -206,7 +206,7 @@ rule-providers:
     url: https://ghfast.top/https://raw.githubusercontent.com/cj1354421348/bokepice/refs/heads/main/ACL4SSR/MYUNACL4SSR.list
     path: ./ruleset/MYUNACL4SSR.list
     behavior: classical
-    interval: 86400
+    interval: 86
     format: text
     type: http
 rules:
