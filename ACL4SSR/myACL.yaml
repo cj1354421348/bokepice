@@ -195,33 +195,22 @@ rules:
   # 代理合集0
   - "RULE-SET,github_domain,🚀 代理合集0"
   - "RULE-SET,google_domain,🚀 代理合集0"
-  - "RULE-SET,onedrive_domain,🚀 代理合集0"
-  - "RULE-SET,openai_domain,🚀 代理合集0"
   - "RULE-SET,youtube_domain,🚀 代理合集0"
   - "RULE-SET,google_ip,🚀 代理合集0,no-resolve"
+  - "RULE-SET,gfw_domain,🚀 代理合集0" #gfw列表
+  - "RULE-SET,geolocation-cn_domain,🎯 直连地址" # 中国地址的域名
   # 代理合集1 - 域名
-  - "RULE-SET,abema_domain,🚀 代理合集1"
-  - "RULE-SET,apple_domain,🚀 代理合集1"
-  - "RULE-SET,applemusic_domain,🚀 代理合集1"
   - "RULE-SET,cloudflare_domain,🚀 代理合集1"
-  - "RULE-SET,ehentai_domain,🚀 代理合集1"
   - "RULE-SET,proxy_domain,🚀 代理合集1"
-  - "RULE-SET,netflix_domain,🚀 代理合集1"
-  - "RULE-SET,pixiv_domain,🚀 代理合集1"
   - "RULE-SET,proxymedia_domain,🚀 代理合集1"
-  - "RULE-SET,spotify_domain,🚀 代理合集1"
-  - "RULE-SET,twitter_domain,🚀 代理合集1"
-  - "RULE-SET,tiktok_domain,🚀 代理合集1"
-  - "RULE-SET,cn_domain,🎯 直连地址"
-  - "RULE-SET,cn_ip,🎯 直连地址"
+  - "RULE-SET,category-porn_domain,🚀 代理合集1" # NASF
+  - "RULE-SET,category-scholar-!cn_domain,🚀 代理合集1" #非中国地址的学校域名
+  - "RULE-SET,geolocation-!cn_domain,🚀 代理合集1" #非中国地址的域名
   # 代理合集1 - IP
-  - "RULE-SET,apple_ip,🚀 代理合集1,no-resolve"
   - "RULE-SET,cloudflare_ip,🚀 代理合集1,no-resolve"
   - "RULE-SET,cloudfront_ip,🚀 代理合集1,no-resolve"
-  - "RULE-SET,facebook_ip,🚀 代理合集1,no-resolve"
-  - "RULE-SET,jp_ip,🚀 代理合集1,no-resolve"
-  - "RULE-SET,netflix_ip,🚀 代理合集1,no-resolve"
-  - "RULE-SET,twitter_ip,🚀 代理合集1,no-resolve"
+  - "RULE-SET,cn_domain,🎯 直连地址"
+  - "RULE-SET,cn_ip,🎯 直连地址"
   - "GEOIP,CN,🎯 全球直连"
   - "MATCH,🐟 漏网之鱼"
 
@@ -237,42 +226,31 @@ rule-anchor:
 rule-providers: 
   MYACL4SSR: { <<: *class, url: "https://ghfast.top/https://raw.githubusercontent.com/cj1354421348/bokepice/refs/heads/main/ACL4SSR/MYACL4SSR.list"}
   MYUNACL4SSR: { <<: *class, url: "https://ghfast.top/https://raw.githubusercontent.com/cj1354421348/bokepice/refs/heads/main/ACL4SSR/MYUNACL4SSR.list"}
-  private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/private.list" }  # 私有网络域名（国内） 
-  private_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/private.list"}  # 私有网络IP（国内）
-  cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/cn.list" }  # 中国大陆域名（国内）
-  cn_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/cn.list"}  # 中国IP（国内）
-  bilibili_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/bilibili.list"}  # Telegram IP（国外）
-  bilibili_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/bilibili.list" }
+  private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/private.list" }  # 私有网络域名（国内） 
+  private_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/private.list"}  # 私有网络IP（国内）
+  cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.list" }  # 中国大陆域名（国内）
+  cn_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.list"}  # 中国IP（国内）
+  bilibili_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/bilibili.list"}
+  bilibili_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/bilibili.list" }
 # 国外域名规则
-  microsoft_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/microsoft.list" }  # Microsoft（国外）
-  telegram_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/telegram.list" }  # Telegram（国外）
-  bahamut_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/bahamut.list" }  # 台湾巴哈姆特动画疯（国外）
-  biliintl_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/biliintl.list" }  # B站国际版（国外）
-  google_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/google.list" }
-  github_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/github.list" }
-  onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/onedrive.list" }
-  openai_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/openai.list" }
-  youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/youtube.list" }
-  telegram_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/telegram.list"}  # Telegram IP（国外）
-  google_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/google.list" }
+  microsoft_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/microsoft.list" }  # Microsoft（国外）
+  telegram_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/telegram.list" }  # Telegram（国外）
+  bahamut_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/bahamut.list" }  # 台湾巴哈姆特动画疯（国外）
+  biliintl_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/biliintl.list" }  # B站国际版（国外）
+  google_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/google.list" }
+  github_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/github.list" }
+  youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/youtube.list" }
+  telegram_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/telegram.list"}  # Telegram IP（国外）
+  google_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/google.list" }
+  gfw_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/gfw.list" }
+  geolocation-cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/geolocation-cn.list" }
 # 优先级低的----------------------
-  abema_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/abema.list" }
-  apple_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/apple.list" }
-  applemusic_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/applemusic.list" }
-  cloudflare_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/cloudflare.list" }
-  ehentai_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/ehentai.list" }
+  cloudflare_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cloudflare.list" }
   proxy_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/proxy.list" }
-  netflix_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/netflix.list" }
-  pixiv_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/pixiv.list" }
   proxymedia_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/proxymedia.list" }
-  spotify_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/spotify.list" }
-  twitter_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/twitter.list" }
-  tiktok_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geosite/tiktok.list" }
+  geolocation-!cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/geolocation-!cn.list" }
+  category-scholar-!cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-scholar-!cn.list" }
+  category-porn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-porn.list" }
   # 代理IP列表分别定义
-  apple_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/apple.list" }
-  cloudflare_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/cloudflare.list" }
-  cloudfront_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/cloudfront.list" }
-  facebook_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/facebook.list" }
-  jp_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/jp.list" }
-  netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/netflix.list" }
-  twitter_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/twitter.list" }
+  cloudflare_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cloudflare.list" }
+  cloudfront_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cloudfront.list" }
