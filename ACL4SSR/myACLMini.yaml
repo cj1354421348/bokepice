@@ -103,7 +103,7 @@ proxy-groups:
     con: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/balance.svg"
     interval: 300
     "max-failed-times": 3
-    strategy: "consistent-hashing"
+    strategy: "sticky-sessions"
     lazy: true
     "exclude-filter": "♻️ 自动选择|🚀 节点选择"
     filter: "^(?!.*(?:3x|5x|10x|IPLC|游戏)).*$"
