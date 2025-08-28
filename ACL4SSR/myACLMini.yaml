@@ -106,7 +106,7 @@ proxy-groups:
     strategy: "sticky-sessions"
     lazy: true
     "exclude-filter": "♻️ 自动选择|🚀 节点选择"
-    filter: "^(?!.*(?:3x|5x|10x|IPLC|游戏)).*$"
+    filter: "^(?!.*(?:IPLC|游戏|(?:[3-9]|1[0-9]|20)x)).*$"
     # proxies: allProxies.length > 0 ? allProxies : ["DIRECT"],
   - name: 🎯 全球直连
     type: select
