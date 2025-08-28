@@ -106,6 +106,7 @@ proxy-groups:
     strategy: "consistent-hashing"
     lazy: true
     "exclude-filter": "♻️ 自动选择|🚀 节点选择"
+    filter: "^(?!.*(?:3x|5x|10x|IPLC|游戏)).*$"
     # proxies: allProxies.length > 0 ? allProxies : ["DIRECT"],
   - name: 🎯 全球直连
     type: select
