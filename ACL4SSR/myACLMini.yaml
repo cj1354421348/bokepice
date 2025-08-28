@@ -9,7 +9,7 @@
 #     interval: 86400
 #     health-check:
 #       enable: true
-#       url: https://www.gstatic.com/generate_204
+#       url: https://www.youtube.com
 #       interval: 300
 #     proxy: 直连
 
@@ -88,6 +88,7 @@ proxy-groups:
     type: select
     proxies:
       - ♻️ 自动选择
+      - ♾ 负载均衡-散列
       - DIRECT
   - name: ♻️ 自动选择
     type: url-test
@@ -95,6 +96,17 @@ proxy-groups:
     include-all: true
     interval: 300
     tolerance: 50
+  - name: "♾ 负载均衡-散列"
+    type: "load-balance"
+    include-all: true
+    url: "https://www.youtube.com"
+    con: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/balance.svg"
+    interval: 300
+    "max-failed-times": 3
+    strategy: "consistent-hashing"
+    lazy: true
+    "exclude-filter": "♻️ 自动选择|🚀 节点选择"
+    # proxies: allProxies.length > 0 ? allProxies : ["DIRECT"],
   - name: 🎯 全球直连
     type: select
     proxies:
