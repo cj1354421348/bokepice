@@ -83,100 +83,32 @@ dns:
 # 如果相应分组没有筛选到对应的国家，请根据自己节点名字调整筛选关键字。
 # 没有再使用锚点，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
 proxy-groups:
-  - name: 🚀 节点选择
-    include-all: true
-    type: select
-    proxies:
-      - ♻️ 自动选择
-      - DIRECT
-  - name: ♻️ 自动选择
-    type: url-test
-    url: https://www.youtube.com
-    include-all: true
-    interval: 300
-    tolerance: 50
-  - name: 🎯 全球直连
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-      - ♻️ 自动选择
-  - name: 📲 电报消息
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-  # - name: 🌍 国外媒体
-  #   type: select
-  #   proxies:
-  #     - 🚀 节点选择
-  #     - 🎯 全球直连
-  #     - DIRECT
-  # - name: 📢 谷歌FCM
-  #   type: select
-  #   proxies:
-  #     - 🚀 节点选择
-  #     - 🎯 全球直连
-  - name: Ⓜ️ 微软服务
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-  # - name: 🍎 苹果服务
-  #   type: select
-  #   proxies:
-  #     - 🚀 节点选择
-  #     - 🎯 全球直连
-  # - name: 🛑 广告拦截
-  #   type: select
-  #   proxies:
-  #     - REJECT
-  #     - DIRECT
-  # - name: 🍃 应用净化
-  #   type: select
-  #   proxies:
-  #     - REJECT
-  #     - DIRECT
-  - name: 🐟 漏网之鱼
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-  - name: 👍 额外代理
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-  - name: ⛔ 额外不代理
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
-  - name: 📺 巴哈姆特
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-  - name: 📺 哔哩哔哩
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-  - name: 🚀 代理合集0
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-  - name: 🚀 代理合集1
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-  - name: 🎯 直连地址
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
+  - {name: 🚀 节点选择, type: select, proxies: [01-♻️ 自动选择, 02-🌐 全部节点, 03-🔯 香港故转, 04-🔯 日本故转, 05-🔯 狮城故转, 06-🔯 美国故转, 07-♻️ 香港自动, 08-♻️ 日本自动, 09-♻️ 狮城自动, 10-♻️ 美国自动, 11-🇭🇰 香港节点, 12-🇯🇵 日本节点, 13-🇸🇬 狮城节点, 14-🇺🇲 美国节点, DIRECT]}
+  - {name: 01-♻️ 自动选择, type: url-test, url: https://www.youtube.com, include-all: true, interval: 300, tolerance: 50}
+  - {name: 02-🌐 全部节点, type: select, include-all: true}
+  - {name: 🎯 全球直连, type: select, proxies: [DIRECT, 🚀 节点选择, 01-♻️ 自动选择]}
+  - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: Ⓜ️ 微软服务, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 👍 额外代理, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: ⛔ 额外不代理, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 📺 巴哈姆特, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 📺 哔哩哔哩, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 🚀 代理合集0, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 🚀 代理合集1, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 🎯 直连地址, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 03-🔯 香港故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: 04-🔯 日本故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$"}
+  - {name: 05-🔯 狮城故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(台|日|韩|深|美)).)*$"}
+  - {name: 06-🔯 美国故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|韩|新|日)).)*$"}
+  - {name: 07-♻️ 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: 08-♻️ 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$"}
+  - {name: 09-♻️ 狮城自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(港|台|韩|日|美)).)*$"}
+  - {name: 10-♻️ 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}
+  - {name: 11-🇭🇰 香港节点, type: select, include-all: true, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: 12-🇯🇵 日本节点, type: select, include-all: true, filter: "(?i)日|jp|japan"}
+  - {name: 13-🇸🇬 狮城节点, type: select, include-all: true, filter: "(?i)新加坡|坡|狮城|SG|Singapore"}
+  - {name: 14-🇺🇲 美国节点, type: select, include-all: true, filter: "(?i)美|us|unitedstates|united states"}
 # 规则匹配
 # 此规则部分没有做防泄露处理，因为弊严重大于利！
 # 规则匹配
