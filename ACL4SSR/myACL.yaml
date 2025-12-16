@@ -142,7 +142,7 @@ rules:
   - "RULE-SET,cloudflare_ip,🚀 代理合集1,no-resolve"
   - "RULE-SET,cloudfront_ip,🚀 代理合集1,no-resolve"
   - "RULE-SET,cn_domain,🎯 直连地址"
-  - "RULE-SET,cn_ip,🎯 直连地址"
+  # - "RULE-SET,cn_ip,🎯 直连地址"
   - "GEOIP,CN,🎯 全球直连"
   - "MATCH,🐟 漏网之鱼"
 
