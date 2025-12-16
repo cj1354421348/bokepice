@@ -83,10 +83,10 @@ dns:
 # 如果相应分组没有筛选到对应的国家，请根据自己节点名字调整筛选关键字。
 # 没有再使用锚点，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
 proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [01-♻️ 自动选择, 02-🌐 全部节点, 03-🔯 香港故转, 04-🔯 日本故转, 05-🔯 狮城故转, 06-🔯 美国故转, 07-♻️ 香港自动, 08-♻️ 日本自动, 09-♻️ 狮城自动, 10-♻️ 美国自动, 11-🇭🇰 香港节点, 12-🇯🇵 日本节点, 13-🇸🇬 狮城节点, 14-🇺🇲 美国节点, DIRECT]}
-  - {name: 01-♻️ 自动选择, type: url-test, url: https://www.youtube.com, include-all: true, interval: 300, tolerance: 50}
-  - {name: 02-🌐 全部节点, type: select, include-all: true}
-  - {name: 🎯 全球直连, type: select, proxies: [DIRECT, 🚀 节点选择, 01-♻️ 自动选择]}
+  - {name: 🚀 节点选择, type: select, proxies: [01-🌐 全部节点, 02-♻️ 自动选择, 03-🔯 香港故转, 04-🔯 日本故转, 05-🔯 狮城故转, 06-🔯 美国故转, 07-♻️ 香港自动, 08-♻️ 日本自动, 09-♻️ 狮城自动, 10-♻️ 美国自动, 11-🇭🇰 香港节点, 12-🇯🇵 日本节点, 13-🇸🇬 狮城节点, 14-🇺🇲 美国节点, DIRECT]}
+  - {name: 01-🌐 全部节点, type: select, include-all: true}
+  - {name: 02-♻️ 自动选择, type: url-test, url: https://www.youtube.com, include-all: true, interval: 300, tolerance: 50}
+  - {name: 🎯 全球直连, type: select, proxies: [DIRECT, 🚀 节点选择, 02-♻️ 自动选择]}
   - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
   - {name: Ⓜ️ 微软服务, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
